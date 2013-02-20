@@ -1,7 +1,9 @@
-@(message: String)
+@(loanApplication: LoanApplication)
+
+@import helper.twitterBootstrap._
 
 @main("Welcome to Play 2.1") {
-
+	
 
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -14,7 +16,7 @@
 		</div>
 	</div>
 
-	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm") {
+	@helper.form(action = routes.LoanApplicationController.create(), 'id -> "myForm") {
     
 
 		<div class="input-prepend">
@@ -31,7 +33,8 @@
 
 		<div class="input-prepend">
 			<span class="add-on">Make</span>
-			<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead">
+			<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make">
+			
 		</div>
 
 		<div class="input-prepend">
@@ -48,7 +51,9 @@
 			Used
 		</label>
 
-		<input type="submit" value="submit"></input>
+		<a href="@routes.LoanApplicationController.list()">list</a>
+
+		<button type="submit" class="btn">Save</button>
 	}
 
 

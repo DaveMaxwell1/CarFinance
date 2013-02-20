@@ -8,18 +8,18 @@ import play.data.validation.Constraints.*;
 import javax.persistence.*;
 
 
-
+@Entity
 public class LoanApplication extends Model {
 
 	@Id
-	public String id;
+	public Long id;
 
 	public String make;
 	public String model;
 	public Long	 year;
 	
-	public static Finder<String,LoanApplication> find = new Finder(
-		String.class, LoanApplication.class
+	public static Finder<Long,LoanApplication> find = new Finder(
+		Long.class, LoanApplication.class
 	);
 	
 	public static List<LoanApplication> all() {
@@ -29,6 +29,10 @@ public class LoanApplication extends Model {
 	
 	public static void create(LoanApplication loanApplication) {
 		loanApplication.save();
+	}
+
+	public static LoanApplication get(Long id) {
+		return find.ref(id);
 	}
 
 
