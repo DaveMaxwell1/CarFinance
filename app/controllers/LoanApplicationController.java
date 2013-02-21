@@ -15,16 +15,19 @@ public class LoanApplicationController extends Controller {
 		return ok(loanApplicationView.render(new LoanApplication()));
 	}
 
-	public static Result create() {
+	public static Result save() {
 
 		Form<LoanApplication> loanApplicationForm = Form.form(LoanApplication.class);
 		LoanApplication loanApplication = loanApplicationForm.bindFromRequest().get();
 
-		loanApplication.save();
+		if(loanApplication.id == null)
+			loanApplication.save();
+		else
+			loanApplication.update();
 
 		System.out.println(loanApplication.make);
 
-		return ok(loanApplicationView.render(new LoanApplication()));
+		return ok(loanApplicationListView.render(LoanApplication.all()));
 	}
 
 	public static Result update(Long id) {

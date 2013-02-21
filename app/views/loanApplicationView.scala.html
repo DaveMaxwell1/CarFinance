@@ -5,41 +5,21 @@
 @main("Welcome to Play 2.1") {
 	
 
-	<div class="navbar">
-		<div class="navbar-inner">
-			<a class="brand" href="#">Title</a>
-			<ul class="nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
-			</ul>
-		</div>
-	</div>
+	
 
-	@helper.form(action = routes.LoanApplicationController.create(), 'id -> "myForm") {
+	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm") {
     
+
+		<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
+
+		
+
 
 		<div class="input-prepend">
 			<span class="add-on">Vehicle Type</span>	
 			<select name="type">
 				@vehicleTypes
 			</select>
-		</div>
-
-		<div class="input-prepend">
-			<span class="add-on">Year</span>
-			<input id="car_year" name="year" class="span2" type="text" placeholder="2010" data-provide="typeahead">
-		</div>
-
-		<div class="input-prepend">
-			<span class="add-on">Make</span>
-			<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make">
-			
-		</div>
-
-		<div class="input-prepend">
-			<span class="add-on">Model</span>
-			<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead">
 		</div>
 
 		<label class="radio">
@@ -51,9 +31,85 @@
 			Used
 		</label>
 
+		<legend>Car Details</legend>
+		<div class="row">
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Year</span>
+					<input id="car_year" name="year" class="span2" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Make</span>
+					<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Model</span>
+					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" required>
+				</div>
+			</div>
+		</div>
+
+		
+
+
+		
+		<legend>Applicant</legend>
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">First</span>
+				<input id="first_name" name="first_name" class="span2" type="text" placeholder="Joe" value="@loanApplication.first_name" required>
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Last</span>
+				<input id="last_name" name="last_name" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.last_name" required>
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Email</span>
+				<input id="email" name="email" class="span2" type="Email" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
+			</div>
+		</div>
+
+		<legend>Account</legend>
+		<div class="row">
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Bank</span>
+					<input id="financial_institution" name="financial_institution" class="span2" type="text" min="1950" data-provide="typeahead" value="@loanApplication.financial_institution" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">NSC</span>
+					<input id="sort_code" name="sort_code" class="span2" type="number" min="100000" max="1000000" placeholder="912345" value="@loanApplication.sort_code" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Account #</span>
+					<input id="account_number" name="account_number" class="span2" type="text" placeholder="8123457" value="@loanApplication.account_number" required>
+				</div>
+			</div>
+		</div>
+
+		
+
 		<a href="@routes.LoanApplicationController.list()">list</a>
 
 		<button type="submit" class="btn">Save</button>
+
 	}
 
 

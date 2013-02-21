@@ -16,6 +16,12 @@ public class LoanApplication extends Model {
 
 	public String make;
 	public String model;
+	public String first_name;
+	public String last_name;
+	public String email;
+	public String financial_institution;
+	public String sort_code;
+	public String account_number;
 	public Long	 year;
 	
 	public static Finder<Long,LoanApplication> find = new Finder(
