@@ -15,22 +15,6 @@
 		
 
 
-		<div class="input-prepend">
-			<span class="add-on">Vehicle Type</span>	
-			<select name="type">
-				@vehicleTypes
-			</select>
-		</div>
-
-		<label class="radio">
-			<input type="radio" name="car_new_used" value="new" checked>
-			New
-		</label>
-		<label class="radio">
-			<input type="radio" name="car_new_used" value="used">
-			Used
-		</label>
-
 		<legend>Car Details</legend>
 		<div class="row">
 
@@ -53,6 +37,29 @@
 					<span class="add-on">Model</span>
 					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" required>
 				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">Type</span>	
+				<select name="type">
+					@vehicleTypes
+				</select>
+			</div>
+
+			<div class="span1">
+				<label class="radio">
+					<input type="radio" name="car_new_used" value="new" checked>
+					New
+				</label>
+			</div>
+			<div class="span1">
+				<label class="radio">
+					<input type="radio" name="car_new_used" value="used">
+					Used
+				</label>
 			</div>
 		</div>
 
@@ -108,7 +115,11 @@
 
 		<a href="@routes.LoanApplicationController.list()">list</a>
 
-		<button type="submit" class="btn">Save</button>
+		<div class="container">
+			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary">Submit Application</button>
+		</div>
+
 
 	}
 
