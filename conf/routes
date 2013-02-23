@@ -10,5 +10,7 @@ GET     /LoanApplication/:id        controllers.LoanApplicationController.read(i
 POST    /LoanApplication            controllers.LoanApplicationController.save()
 #POST    /LoanApplication/:id        controllers.LoanApplicationController.update(id: Long)
 
+GET     /dbg                        controllers.DbgController.dbg()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
