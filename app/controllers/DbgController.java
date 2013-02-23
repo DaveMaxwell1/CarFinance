@@ -4,11 +4,12 @@ import play.*;
 import play.mvc.*;
 
 import views.html.*;
+import models.*;
 
 public class DbgController extends Controller {
   
 	public static Result dbg() {
-		return ok(index.render("Your new application is ready."));
+		return ok(dbgView.render(new LoanApplication()));
 	}
 
 }

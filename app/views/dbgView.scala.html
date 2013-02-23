@@ -1,0 +1,158 @@
+@(loanApplication: LoanApplication)
+
+@import helper.twitterBootstrap._
+
+@main("Welcome to Play 2.1") {
+	
+
+	
+
+	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm") {
+    
+
+		<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
+
+		
+
+
+		<legend>Car Details</legend>
+		<div class="row">
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Year</span>
+					<input id="car_year" name="year" class="span2" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Make</span>
+					<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Model</span>
+					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" required>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">Type</span>	
+				<select name="type">
+					@vehicleTypes
+				</select>
+			</div>
+
+			<div class="span1">
+				<label class="radio">
+					<input type="radio" name="car_new_used" value="new" checked>
+					New
+				</label>
+			</div>
+			<div class="span1">
+				<label class="radio">
+					<input type="radio" name="car_new_used" value="used">
+					Used
+				</label>
+			</div>
+		</div>
+
+		
+
+
+		
+		<legend>Applicant</legend>
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">First</span>
+				<input id="first_name" name="first_name" class="span2" type="text" placeholder="Joe" value="@loanApplication.first_name" required>
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Last</span>
+				<input id="last_name" name="last_name" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.last_name" required>
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Email</span>
+				<input id="email" name="email" class="span2" type="Email" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
+			</div>
+		</div>
+
+		<legend>Account</legend>
+		<div class="row">
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Bank</span>
+					<input id="financial_institution" name="financial_institution" class="span2" type="text" min="1950" data-provide="typeahead" value="@loanApplication.financial_institution" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">NSC</span>
+					<input id="sort_code" name="sort_code" class="span2" type="number" min="100000" max="1000000" placeholder="912345" value="@loanApplication.sort_code" autocomplete=off required>
+				</div>
+			</div>
+
+			<div class="span4">
+				<div class="input-prepend">
+					<span class="add-on">Account #</span>
+					<input id="account_number" name="account_number" class="span2" type="text" placeholder="8123457" value="@loanApplication.account_number" required>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<a href="@routes.LoanApplicationController.list()">list</a>
+
+		<div class="container">
+			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary">Submit Application</button>
+		</div>
+
+
+	}
+
+
+	
+	<script src="@routes.Assets.at("coffee/loanApplication.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("js/compiled.js")" type="text/javascript"></script>
+
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("less/loanApplication.css")">
+
+}
+
+@vehicleTypes = {
+	<option value="" name="BLANK">&nbsp;</option>
+	<option value="101">Cars New</option>
+	<option value="102">Cars Used</option>
+	<option value="213">Vans New</option>
+	<option value="214">Vans Used</option>
+	<option value="202">Pick-up Trucks</option>
+	<option value="203">Trucks</option>
+	<option value="206">Trailers</option>
+	<option value="207">Coaches</option>
+	<option value="208">Agricultural Tractors</option>
+	<option value="301">Farm/Fishing/Forestry Equipment</option>
+	<option value="303">Earthmoving Equipment</option>
+	<option value="307">Computer Equipment</option>
+	<option value="308">Communication Equipment</option>
+	<option value="309">Office Equipment</option>
+	<option value="310">Medical/Dental Equipment</option>
+	<option value="316">Forklift Trucks</option>
+	<option value="317">Shopping Equipment</option>
+	<option value="318">Catering Equipment</option>
+	<option value="701">Home Improvements</option>
+	<option value="803">Other Personal Expenses</option>
+	<option value="810">Insurance/Assurance Premiums</option>
+}
