@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.LoanApplicationController.list()
+GET     /                           controllers.Application.index()
 GET     /LoanApplication            controllers.LoanApplicationController.New()
 GET     /LoanApplications           controllers.LoanApplicationController.list()
 GET     /LoanApplication/:id        controllers.LoanApplicationController.read(id: Long)
@@ -11,6 +11,7 @@ POST    /LoanApplication            controllers.LoanApplicationController.save()
 #POST    /LoanApplication/:id        controllers.LoanApplicationController.update(id: Long)
 
 GET     /dbg                        controllers.DbgController.dbg()
+GET     /environments               controllers.EnvironmentsController.list()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
