@@ -73,6 +73,7 @@
 			</div>
 		</div>
 
+
 		<legend>Finance Required</legend>
 
 		<div class="row">
@@ -99,6 +100,41 @@
 			<div class="input-prepend span4">
 				<span class="add-on">Finance Required</span>
 				<input id="finance_required" name="finance_required" class="span2" type="text" placeholder="5000" value="@loanApplication.finance_required" required>
+			</div>
+		</div>
+		
+
+		<legend>Repayment Info</legend>
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">Payment Frequency</span>
+				<input id="payment_frequency" name="payment_frequency" class="span2" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Payment Term</span>
+				<input id="payment_term" name="payment_term" class="span2" type="text" placeholder="3 years" value="@loanApplication.payment_term">
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Payment Amount</span>
+				<input id="payment_amount" name="payment_amount" class="span2" type="text" placeholder="300" value="@loanApplication.payment_amount">
+			</div>
+		</div>
+		
+
+		<legend>Lease Info</legend>
+
+		<div class="row">
+			<div class="input-prepend span4">
+				<span class="add-on">Number of Advance Rentals</span>
+				<input id="number_of_advance_rentals" name="number_of_advance_rentals" class="span2" type="number" placeholder="2" value="@loanApplication.number_of_advance_rentals">
+			</div>
+
+			<div class="input-prepend span4">
+				<span class="add-on">Number of Rentals</span>
+				<input id="number_of_rentals" name="number_of_rentals" class="span2" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
 			</div>
 		</div>
 
