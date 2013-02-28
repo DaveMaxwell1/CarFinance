@@ -35,7 +35,7 @@
 			<div class="span4">
 				<div class="input-prepend">
 					<span class="add-on">Model</span>
-					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" required>
+					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
 				</div>
 			</div>
 		</div>
@@ -162,6 +162,10 @@
 				</div>
 			</div>
 		</div>
+
+
+		<legend>Comment</legend>
+		<textarea id="comment" name="comment" placeholder="Add Comment..." class="input-block-level" value="@loanApplication.comment" rows="3"></textarea>
 
 		
 

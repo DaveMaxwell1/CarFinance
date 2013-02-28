@@ -39,6 +39,9 @@ public class LoanApplication extends Model {
 	//Lease info
 	public Long number_of_advance_rentals;
 	public Long number_of_rentals;
+
+	//
+	public String comment;
 	
 	public static Finder<Long,LoanApplication> find = new Finder(
 		Long.class, LoanApplication.class
