@@ -23,6 +23,13 @@ public class LoanApplication extends Model {
 	public String sort_code;
 	public String account_number;
 	public Long	 year;
+
+	//Finance Required
+	public String cash_price;
+	public String trade_in;
+	public String deposit;
+	public String outstanding_finance_on_trade_in;
+	public String finance_required;
 	
 	public static Finder<Long,LoanApplication> find = new Finder(
 		Long.class, LoanApplication.class
