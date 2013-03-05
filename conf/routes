@@ -11,6 +11,7 @@ POST    /LoanApplication            controllers.LoanApplicationController.save()
 #POST    /LoanApplication/:id        controllers.LoanApplicationController.update(id: Long)
 
 GET     /dbg                        controllers.DbgController.dbg()
+GET     /dbg/bootstrap              controllers.DbgController.bootstrap()
 GET     /environments               controllers.EnvironmentsController.list()
 
 # Map static resources from the /public folder to the /assets URL path

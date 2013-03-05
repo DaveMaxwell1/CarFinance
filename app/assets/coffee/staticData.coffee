@@ -1,4 +1,5 @@
 $ ->
+	# Setup the $cf namespace
 	if ! window.$cf?
 		window.$cf = {}
 
