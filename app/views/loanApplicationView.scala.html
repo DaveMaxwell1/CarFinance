@@ -7,7 +7,7 @@
 
 	
 
-	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm") {
+	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm", 'class -> "form-horizontal") {
     
 
 		<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
@@ -18,36 +18,42 @@
 		<legend>Car Details</legend>
 		<div class="row">
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">Year</span>
-					<input id="car_year" name="year" class="span2" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+			<div class="offset4 span4">
+				<div class="control-group">
+					<label class="control-label" for="car_year">Year</label>
+					<div class="controls">
+						<input id="car_year" name="year" class="span2" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+					</div>
 				</div>
-			</div>
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">Make</span>
-					<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+
+				<div class="control-group">
+					<label class="control-label" for="car_make">Make</label>
+					<div class="controls">
+						<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+					</div>
 				</div>
-			</div>
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">Model</span>
-					<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
+
+				<div class="control-group">
+					<label class="control-label" for="car_model">Model</label>
+					<div class="controls">
+						<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
+					</div>
 				</div>
-			</div>
-		</div>
 
 
-		<div class="row">
-			<div class="input-prepend span4">
-				<span class="add-on">Type</span>	
-				<select name="type">
-					@vehicleTypes
-				</select>
+				<div class="control-group">
+					<label class="control-label" for="car_type">Type</label>
+					<div class="controls">
+						<select id="car_type" name="type">
+							@vehicleTypes
+						</select>
+					</div>
+				</div>
+
 			</div>
+
 		</div>
 
 		
