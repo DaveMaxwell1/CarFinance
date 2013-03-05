@@ -18,11 +18,11 @@
 		<legend>Car Details</legend>
 		<div class="row">
 
-			<div class="offset4 span4">
+			<div class="span12">
 				<div class="control-group">
 					<label class="control-label" for="car_year">Year</label>
 					<div class="controls">
-						<input id="car_year" name="year" class="span2" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+						<input id="car_year" name="year" class="span4" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
 					</div>
 				</div>
 
@@ -30,7 +30,7 @@
 				<div class="control-group">
 					<label class="control-label" for="car_make">Make</label>
 					<div class="controls">
-						<input id="car_make" name="make" class="span2" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+						<input id="car_make" name="make" class="span4" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
 					</div>
 				</div>
 
@@ -38,7 +38,7 @@
 				<div class="control-group">
 					<label class="control-label" for="car_model">Model</label>
 					<div class="controls">
-						<input id="car_model" name="model" class="span2" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
+						<input id="car_model" name="model" class="span4" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
 					</div>
 				</div>
 
@@ -46,7 +46,7 @@
 				<div class="control-group">
 					<label class="control-label" for="car_type">Type</label>
 					<div class="controls">
-						<select id="car_type" name="type">
+						<select id="car_type" name="type" class="span4">
 							@vehicleTypes
 						</select>
 					</div>
@@ -63,109 +63,125 @@
 		<legend>Applicant</legend>
 
 		<div class="row">
-			<div class="input-prepend span4">
-				<span class="add-on">First</span>
-				<input id="first_name" name="first_name" class="span2" type="text" placeholder="Joe" value="@loanApplication.first_name" required>
+
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="car_year">Name</label>
+					<div class="controls">
+						<input id="first_name" name="first_name" class="span2" type="text" placeholder="Joe" value="@loanApplication.first_name" required>
+						<input id="last_name" name="last_name" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.last_name" required>
+					</div>
+				</div>
 			</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Last</span>
-				<input id="last_name" name="last_name" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.last_name" required>
-			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Email</span>
-				<input id="email" name="email" class="span2" type="Email" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
+		<div class="control-group">
+			<label class="control-label" for="email">Email</label>
+			<div class="controls">
+				<input id="email" name="email" class="span4" type="Email" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
 			</div>
 		</div>
 
 
 		<legend>Finance Required</legend>
 
-		<div class="row">
-			<div class="input-prepend span4">
-				<span class="add-on">Cash Price</span>
-				<input id="cash_price" name="cash_price" class="span2" type="text" placeholder="8000" value="@loanApplication.cash_price" required>
+		<div class="control-group">
+			<label class="control-label" for="cash_price">Cash Price</label>
+			<div class="controls">
+				<input id="cash_price" name="cash_price" class="span4" type="text" placeholder="8000" value="@loanApplication.cash_price" required>
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Trade In</span>
-				<input id="trade_in" name="trade_in" class="span2" type="text" placeholder="2000" value="@loanApplication.trade_in" required>
+		<div class="control-group">
+			<label class="control-label" for="trade_in">Trade In</label>
+			<div class="controls">
+				<input id="trade_in" name="trade_in" class="span4" type="text" placeholder="2000" value="@loanApplication.trade_in" required>
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Deposit</span>
-				<input id="deposit" name="deposit" class="span2" type="text" placeholder="1500" value="@loanApplication.deposit" required>
+		<div class="control-group">
+			<label class="control-label" for="deposit">Deposit</label>
+			<div class="controls">
+				<input id="deposit" name="deposit" class="span4" type="text" placeholder="1500" value="@loanApplication.deposit" required>
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Outstanding Finance on Trade In</span>
-				<input id="outstanding_finance_on_trade_in" name="outstanding_finance_on_trade_in" class="span2" type="text" placeholder="500" value="@loanApplication.outstanding_finance_on_trade_in" required>
+		<div class="control-group">
+			<label class="control-label" for="outstanding_finance_on_trade_in">Outstanding Finance on Trade In</label>
+			<div class="controls">
+				<input id="outstanding_finance_on_trade_in" name="outstanding_finance_on_trade_in" class="span4" type="text" placeholder="500" value="@loanApplication.outstanding_finance_on_trade_in" required>
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Finance Required</span>
-				<input id="finance_required" name="finance_required" class="span2" type="text" placeholder="5000" value="@loanApplication.finance_required" required>
+		<div class="control-group">
+			<label class="control-label" for="finance_required">Finance Required</label>
+			<div class="controls">
+				<input id="finance_required" name="finance_required" class="span4" type="text" placeholder="5000" value="@loanApplication.finance_required" required>
 			</div>
 		</div>
 		
 
 		<legend>Repayment Info</legend>
 
-		<div class="row">
-			<div class="input-prepend span4">
-				<span class="add-on">Payment Frequency</span>
-				<input id="payment_frequency" name="payment_frequency" class="span2" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
+		<div class="control-group">
+			<label class="control-label" for="payment_frequency">Payment Frequency</label>
+			<div class="controls">
+				<input id="payment_frequency" name="payment_frequency" class="span4" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Payment Term</span>
-				<input id="payment_term" name="payment_term" class="span2" type="text" placeholder="3 years" value="@loanApplication.payment_term">
+		<div class="control-group">
+			<label class="control-label" for="payment_term">Payment Term</label>
+			<div class="controls">
+				<input id="payment_term" name="payment_term" class="span4" type="text" placeholder="3 years" value="@loanApplication.payment_term">
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Payment Amount</span>
-				<input id="payment_amount" name="payment_amount" class="span2" type="text" placeholder="300" value="@loanApplication.payment_amount">
+		<div class="control-group">
+			<label class="control-label" for="payment_amount">Payment Amount</label>
+			<div class="controls">
+				<input id="payment_amount" name="payment_amount" class="span4" type="text" placeholder="300" value="@loanApplication.payment_amount">
 			</div>
 		</div>
 		
 
 		<legend>Lease Info</legend>
 
-		<div class="row">
-			<div class="input-prepend span4">
-				<span class="add-on">Number of Advance Rentals</span>
-				<input id="number_of_advance_rentals" name="number_of_advance_rentals" class="span2" type="number" placeholder="2" value="@loanApplication.number_of_advance_rentals">
+		<div class="control-group">
+			<label class="control-label" for="payment_amount">Number of Advance Rentals</label>
+			<div class="controls">
+				<input id="number_of_advance_rentals" name="number_of_advance_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_advance_rentals">
 			</div>
+		</div>
 
-			<div class="input-prepend span4">
-				<span class="add-on">Number of Rentals</span>
-				<input id="number_of_rentals" name="number_of_rentals" class="span2" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
+		<div class="control-group">
+			<label class="control-label" for="payment_amount">Number of Rentals</label>
+			<div class="controls">
+				<input id="number_of_rentals" name="number_of_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
 			</div>
 		</div>
 
 		<legend>Account</legend>
-		<div class="row">
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">Bank</span>
-					<input id="financial_institution" name="financial_institution" class="span2" type="text" min="1950" data-provide="typeahead" value="@loanApplication.financial_institution" autocomplete=off required>
-				</div>
+		<div class="control-group">
+			<label class="control-label" for="payment_amount">Bank</label>
+			<div class="controls">
+				<input id="financial_institution" name="financial_institution" class="span4" type="text" min="1950" data-provide="typeahead" value="@loanApplication.financial_institution" autocomplete=off required>
 			</div>
+		</div>
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">NSC</span>
-					<input id="sort_code" name="sort_code" class="span2" type="number" min="100000" max="1000000" placeholder="912345" value="@loanApplication.sort_code" autocomplete=off required>
-				</div>
+		<div class="control-group">
+			<label class="control-label" for="sort_code">NSC</label>
+			<div class="controls">
+				<input id="sort_code" name="sort_code" class="span4" type="number" min="100000" max="1000000" placeholder="912345" value="@loanApplication.sort_code" autocomplete=off required>
 			</div>
+		</div>
 
-			<div class="span4">
-				<div class="input-prepend">
-					<span class="add-on">Account #</span>
-					<input id="account_number" name="account_number" class="span2" type="text" placeholder="8123457" value="@loanApplication.account_number" required>
-				</div>
+		<div class="control-group">
+			<label class="control-label" for="account_number">Account #</label>
+			<div class="controls">
+				<input id="account_number" name="account_number" class="span4" type="text" placeholder="8123457" value="@loanApplication.account_number" required>
 			</div>
 		</div>
 
