@@ -1,0 +1,8 @@
+@echo off
+REM Copy this file and rename to setup_env_vars.bat
+REM Add your own environment specifics in here.
+
+set DB_USER=postgres
+set DB_PASSWORD=password
+set DB_DRIVER=org.postgresql.Driver
+set DB_URL=jdbc:postgresql://localhost:5432/car_finance
