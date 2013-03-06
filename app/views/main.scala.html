@@ -1,4 +1,7 @@
-@(title: String)(content: Html)
+@(title: String, nav: String = "")(content: Html)
+
+@import be.objectify.deadbolt.java.views.html._
+@import be.objectify.deadbolt.core.utils.TemplateUtils._
 
 <!DOCTYPE html>
 
@@ -37,7 +40,10 @@
 							<li><a href="@routes.EnvironmentsController.list()">Environments</a></li>
 							<li><a href="@routes.LoanApplicationController.list()">My Applications</a></li>
 							<li><a href="@routes.LoanApplicationController.New()">New Application</a></li>
-							<li class="dropdown">
+							@subjectNotPresent() {
+								<li class="@("active".when(nav == "signup"))"><a href="@routes.Application.signup()">@Messages("playauthenticate.navigation.signup")</a></li>
+							}
+							<!--li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="@routes.DbgController.bootstrap()">Bootstrap Test</a></li>
@@ -48,7 +54,7 @@
 									<li><a href="#">Separated link</a></li>
 									<li><a href="#">One more separated link</a></li>
 								</ul>
-							</li>
+							</li-->
 						</ul>
 						<form class="navbar-form pull-right">
 							<input class="span2" type="text" placeholder="Email">

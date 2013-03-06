@@ -1,6 +1,6 @@
-import play.Application;
-import play.GlobalSettings;
-import play.mvc.Call;
+import java.util.Arrays;
+
+import models.SecurityRole;
 
 import com.feth.play.module.pa.PlayAuthenticate;
 import com.feth.play.module.pa.PlayAuthenticate.Resolver;
@@ -9,15 +9,19 @@ import com.feth.play.module.pa.exceptions.AuthException;
 
 import controllers.routes;
 
+import play.Application;
+import play.GlobalSettings;
+import play.mvc.Call;
+
 public class Global extends GlobalSettings {
 
-	public void onStart(final Application app) {
+	public void onStart(Application app) {
 		PlayAuthenticate.setResolver(new Resolver() {
 
 			@Override
 			public Call login() {
 				// Your login page
-				return routes.Application.index();
+				return routes.Application.login();
 			}
 
 			@Override
@@ -41,32 +45,39 @@ public class Global extends GlobalSettings {
 			}
 
 			@Override
+			public Call askMerge() {
+				return routes.Account.askMerge();
+			}
+
+			@Override
+			public Call askLink() {
+				return routes.Account.askLink();
+			}
+
+			@Override
 			public Call onException(final AuthException e) {
 				if (e instanceof AccessDeniedException) {
-					return routes.Application
+					return routes.Signup
 							.oAuthDenied(((AccessDeniedException) e)
 									.getProviderKey());
 				}
 
 				// more custom problem handling here...
-
 				return super.onException(e);
 			}
-
-			@Override
-			public Call askLink() {
-				// We don't support moderated account linking in this sample.
-				// See the play-authenticate-usage project for an example
-				return null;
-			}
-
-			@Override
-			public Call askMerge() {
-				// We don't support moderated account merging in this sample.
-				// See the play-authenticate-usage project for an example
-				return null;
-			}
 		});
+
+		initialData();
 	}
 
+	private void initialData() {
+		if (SecurityRole.find.findRowCount() == 0) {
+			for (final String roleName : Arrays
+					.asList(controllers.Application.USER_ROLE)) {
+				final SecurityRole role = new SecurityRole();
+				role.roleName = roleName;
+				role.save();
+			}
+		}
+	}
 }
