@@ -1,0 +1,14 @@
+@(message: String)
+
+@import com.feth.play.module.pa.views.html._
+
+@main("Car Finance") {
+	
+	@forProviders() { p =>
+		<a href="@p.getUrl()">@p.getKey()</a>
+	}
+
+	
+
+	<!--link rel="stylesheet" media="screen" href="@routes.Assets.at("less/homePage.css")"-->
+}

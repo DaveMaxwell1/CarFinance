@@ -5,10 +5,10 @@ import play.mvc.*;
 
 import views.html.*;
 
-public class Application extends Controller {
-  
+public class LoginController extends Controller {
+
 	public static Result index() {
-		return ok(homePage.render("Your new application is ready."));
+		return ok(loginView.render("Your new application is ready."));
 	}
 
 	public static Result oAuthDenied(final String providerKey) {
