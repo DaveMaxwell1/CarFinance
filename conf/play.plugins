@@ -2,3 +2,4 @@
 10000:be.objectify.deadbolt.java.DeadboltPlugin
 10005:service.MyUserServicePlugin
 10040:providers.MyUsernamePasswordAuthProvider
+10010:com.feth.play.module.pa.providers.oauth2.google.GoogleAuthProvider
