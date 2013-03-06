@@ -56,11 +56,29 @@
 								</ul>
 							</li-->
 						</ul>
-						<form class="navbar-form pull-right">
+						<!--form class="navbar-form pull-right">
 							<input class="span2" type="text" placeholder="Email">
 							<input class="span2" type="password" placeholder="Password">
 							<button type="submit" class="btn">Sign in</button>
-						</form>
+						</form-->
+						<div class="btn-group pull-right">
+							@subjectPresentOr() {
+								@defining(Application.getLocalUser(session())) { user =>
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										<i class="icon-user"></i> @user.name
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="@routes.Application.profile()">@Messages("playauthenticate.navigation.profile")</a></li>
+										<li><a href="@routes.Account.link()">@Messages("playauthenticate.navigation.link_more")</a></li>
+										<li class="divider"></li>
+										<li><a href="@com.feth.play.module.pa.controllers.routes.Authenticate.logout()"><i class="icon-off"></i> @Messages("playauthenticate.navigation.logout")</a></li>
+									</ul>
+								}
+							}{
+								<a href="@routes.Application.login()" class="btn btn-primary btn-mini @("disabled".when(nav == "login"))">@Messages("playauthenticate.navigation.login")</a>
+							}
+						</div>
 					</div>
 				</div>
 			</div>
