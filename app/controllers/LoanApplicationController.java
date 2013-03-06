@@ -9,6 +9,9 @@ import models.*;
 
 import java.util.*;
 
+import be.objectify.deadbolt.java.actions.Group;
+import be.objectify.deadbolt.java.actions.Restrict;
+
 public class LoanApplicationController extends Controller {
 
 	public static Result New() {
@@ -52,6 +55,7 @@ public class LoanApplicationController extends Controller {
 		return ok(loanApplicationView.render(loanApplication));
 	}
 
+	@Restrict(@Group(Application.USER_ROLE))
 	public static Result list() {
 
 		List<LoanApplication> loanApplications = LoanApplication.all();

@@ -16,7 +16,8 @@ object ApplicationBuild extends Build {
 		"mysql"          % "mysql-connector-java" % "5.1.18",
 		"postgresql"     % "postgresql"           % "9.1-901-1.jdbc4",
 		"be.objectify"  %% "deadbolt-java"        % "2.1-SNAPSHOT",
-		"com.feth"      %% "play-authenticate"    % "0.2.5-SNAPSHOT"
+		"com.feth"      %% "play-authenticate"    % "0.2.5-SNAPSHOT",
+		"com.typesafe"  %% "play-plugins-mailer"  % "2.0.4"
 	)
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
