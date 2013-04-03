@@ -9,10 +9,93 @@
 
 	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm", 'class -> "form-horizontal") {
     
+    <!-- Scripts specific to this page -->
+		<script src="assets/js/script.js"></script>
+		<script src="assets/js/jquery.validate.js"></script>
+		<script src="assets/js/jquery.validate.min.js"></script>
+
+		<script src="assets/js/jquery.numeric.js"></script>
+
 
 		<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
 
 		
+		<legend>Select Applicant Type</legend>
+
+
+		
+
+			<div class="control-group">
+				<label class="control-label" for="btn-applicant">Select the applicant type</label>
+					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					  <button type="button" id="btn-consumer" class="btn btn-consumer">Consumer</button>
+					  <button type="button" id="btn-business" class="btn btn-business">Business</button>
+			</div>
+			
+		
+
+	<div id="business-application">
+
+		<legend>Business Details</legend>
+		<div class="row">
+
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_NAME">Business Name</label>
+					<div class="controls">
+						<input id="BUSINESS_NAME" name="BUSINESS_NAME" class="span2" type="text" value="@loanApplication.BUSINESS_NAME" required>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="contact_name">Contact Name</label>
+					<div class="controls">
+						<input id="contact_name" name="contact_name" class="span2" type="text" value="@loanApplication.contact_name" required>
+					</div>
+				</div>
+
+			</div>	
+
+		</div>
+
+	</div>
+
+	<div id="consumer-application">
+
+		<legend>Application Type</legend>
+		<div class="row">
+
+			<div class="span12">
+
+			<div class="control-group">
+				<label class="control-label" for="btn-consumertype">Select the application type</label>
+					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					  <button type="button" id="btn-sole" class="btn btn-sole">Sole</button>
+					  <button type="button" id="btn-joint" class="btn btn-joint">Joint</button>
+					</div>
+			
+
+			</div>	
+
+		</div>
+
+		</div>
+	</div>	
+
+
+
+		<legend>Select Finance Type</legend>
+
+
+
+		<div class="control-group">
+			<label class="control-label" for="btn-hp">Select the required type</label>
+				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+				  <button type="button" id="btn-hp" class="btn btn-hp">Hire-Purchase</button>
+				  <button type="button" id="btn-lease" class="btn btn-lease">Lease</button>
+		</div>
+
+
 
 
 		<legend>Car Details</legend>
@@ -79,7 +162,7 @@
 		<div class="control-group">
 			<label class="control-label" for="email">Email</label>
 			<div class="controls">
-				<input id="email" name="email" class="span4" type="Email" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
+				<input id="email" name="email" class="span4" type="text" placeholder="dave@@gmail.com" data-provide="typeahead" value="@loanApplication.email" required>
 			</div>
 		</div>
 
@@ -124,11 +207,19 @@
 
 		<legend>Repayment Info</legend>
 
+
+
 		<div class="control-group">
 			<label class="control-label" for="payment_frequency">Payment Frequency</label>
+				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+				  <button type="button" class="btn btn-primary">Monthly</button>
+				  <button type="button" class="btn btn-primary">Quarterly</button>
+				  <button type="button" class="btn btn-primary">Yearly</button>
+				</div>
+<!-- 
 			<div class="controls">
 				<input id="payment_frequency" name="payment_frequency" class="span4" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
-			</div>
+			</div> -->
 		</div>
 
 		<div class="control-group">
@@ -146,6 +237,8 @@
 		</div>
 		
 
+		<div id="lease_info">
+
 		<legend>Lease Info</legend>
 
 		<div class="control-group">
@@ -161,6 +254,8 @@
 				<input id="number_of_rentals" name="number_of_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
 			</div>
 		</div>
+
+		</div> <!-- End lease info -->
 
 		<legend>Account</legend>
 
@@ -188,12 +283,92 @@
 		<legend>Address</legend>
 
 		<div class="control-group">
-			<label class="control-label" for="address_1_country">Country</label>
+			<label class="control-label" for="FIRST_CLI_YEARS_AT_ADDRESS">Years at Address</label>
 			<div class="controls">
-				<input id="address_1_country" name="address_1_country" class="span4" type="text" min="1950" placeholder="Ireland" data-provide="typeahead" value="" autocomplete=off required>
+				<input id="FIRST_CLI_YEARS_AT_ADDRESS" name="FIRST_CLI_YEARS_AT_ADDRESS" class="span4" type="number" value="@loanApplication.FIRST_CLI_YEARS_AT_ADDRESS">
+			</div>
+		</div>		
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_1">Address Line 1</label>
+			<div class="controls">
+				<input id="FIRST_CLI_ADDRESS_LINE_1" name="FIRST_CLI_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_1" required>
 			</div>
 		</div>
 
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_2">Address Line 2</label>
+			<div class="controls">
+				<input id="FIRST_CLI_ADDRESS_LINE_2" name="FIRST_CLI_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_2" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_3">Address Line 3</label>
+			<div class="controls">
+				<input id="FIRST_CLI_ADDRESS_LINE_3" name="FIRST_CLI_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_3" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_4">Address Line 4</label>
+			<div class="controls">
+				<input id="FIRST_CLI_ADDRESS_LINE_4" name="FIRST_CLI_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_4" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_5">Address Line 5</label>
+			<div class="controls">
+				<input id="FIRST_CLI_ADDRESS_LINE_5" name="FIRST_CLI_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_5" required>
+			</div>
+		</div>
+
+
+
+
+
+		<div id="first_cli_less_than_required_time">
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_1">Previous Address Line 1</label>
+			<div class="controls">
+				<input id="FIRST_CLI_PREV_ADDR_LINE_1" name="FIRST_CLI_PREV_ADDR_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_1" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_2">Previous Address Line 2</label>
+			<div class="controls">
+				<input id="FIRST_CLI_PREV_ADDR_LINE_2" name="FIRST_CLI_PREV_ADDR_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_2" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_3">Previous Address Line 3</label>
+			<div class="controls">
+				<input id="FIRST_CLI_PREV_ADDR_LINE_3" name="FIRST_CLI_PREV_ADDR_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_3" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_4">Previous Address Line 4</label>
+			<div class="controls">
+				<input id="FIRST_CLI_PREV_ADDR_LINE_4" name="FIRST_CLI_PREV_ADDR_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_4" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_5">Previous Address Line 5</label>
+			<div class="controls">
+				<input id="FIRST_CLI_PREV_ADDR_LINE_5" name="FIRST_CLI_PREV_ADDR_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_5" required>
+			</div>
+		</div>
+
+
+
+		</div>	
+							
 
 		<legend>Comment</legend>
 		<textarea id="comment" name="comment" placeholder="Add Comment..." class="input-block-level" value="@loanApplication.comment" rows="3"></textarea>
