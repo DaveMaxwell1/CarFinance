@@ -83,6 +83,7 @@ public class LoanApplication extends Model {
 	public String  SECOND_CLI_SURNAME;
 	public String  SECOND_CLI_FIRST_NAME;
 	public String  SECOND_CLI_TITLE_DESC;
+	public String second_cli_email;
 	public String  SECOND_CLI_ADDRESS_LINE_1;
 	public String  SECOND_CLI_ADDRESS_LINE_2;
 	public String  SECOND_CLI_ADDRESS_LINE_3;
@@ -108,6 +109,10 @@ public class LoanApplication extends Model {
 	public String  SECOND_CLI_FINANCIAL_INSTITUTE;
 	public String  SECOND_CLI_BANK_NSC;
 	public String  SECOND_CLI_BANK_ACCOUNT_NUMBER;
+
+	public String SECOND_CLI_REPAYMENT_INSTITUTE;
+	public String SECOND_CLI_REPAYMENT_BANK_NSC;
+	public String SECOND_CLI_REPAYMENT_ACCOUNT;
 
 	//Business Info
 	public String BUSINESS_NAME;
