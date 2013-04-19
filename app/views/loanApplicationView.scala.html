@@ -9,43 +9,35 @@
 
 	@helper.form(action = routes.LoanApplicationController.save(), 'id -> "myForm", 'class -> "form-horizontal") {
     
-    <!-- Scripts specific to this page -->
-		<script src="assets/js/script.js"></script>
-		<script src="assets/js/jquery.validate.js"></script>
-		<script src="assets/js/jquery.validate.min.js"></script>
+    <!-- Display div elements and validation scripts -->
+	<script src="assets/js/displayDivs.js"></script>
+	<script src="assets/js/jquery.validate.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
 
-		<script src="assets/js/jquery.numeric.js"></script>
+	<!-- Enable numeric values in text boxes -->
+	<script src="assets/js/jquery.numeric.js"></script>
 
+	<!-- Jquery UI -->
+	<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+	<link type="text/css" href="assets/css/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 
-<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-<link type="text/css" href="assets/css/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-
-
-
-		<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
-
+	<input id="id" name="id" class="span2" type="hidden" value="@loanApplication.id">
 	
+	<!-- Step One: select applicant type business or consumer -->
+	<legend>Select Applicant Type</legend>
 
-		<legend>Select Applicant Type</legend>
-
-
-		
-
-			<div class="control-group">
-				<label class="control-label" for="btn-applicant">Select the applicant type</label>
-					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-					  <button type="button" id="btn-consumer" class="btn btn-consumer">Consumer</button>
+		<div class="control-group">
+			<label class="control-label" for="btn-applicant">Select the applicant type</label>
+				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					<button type="button" id="btn-consumer" class="btn btn-consumer">Consumer</button>
 					  <button type="button" id="btn-business" class="btn btn-business">Business</button>
-			</div>
+				</div>
+		</div>
 			
-		
-
 	<div id="business-application">
 
 		<legend>Business Details</legend>
 		<div class="row">
-
 			<div class="span12">
 				<div class="control-group">
 					<label class="control-label" for="BUSINESS_NAME">Business Name</label>
@@ -60,11 +52,8 @@
 						<input id="contact_name" name="contact_name" class="span2" type="text" value="@loanApplication.contact_name" required>
 					</div>
 				</div>
-
 			</div>	
-
 		</div>
-
 	</div>
 
 	<div id="consumer-application">
@@ -89,11 +78,12 @@
 		</div>
 	</div>	
 
-<div id="application">
+	<!-- Step One: End -->
 
-	
+	<!-- Step Two: applicant details -->
+	<div id="application">
+
 		<legend>First Applicant Details</legend>
-
 
 		<div class="control-group">
 			<label class="control-label" for="FIRST_CLI_TITLE_DESC">Title</label>
@@ -102,14 +92,11 @@
 				  <button type="button" class="btn btn-primary">Ms</button>
 				  <button type="button" class="btn btn-primary">Mrs</button>
 				</div>
-
 		</div>
 
 		<div class="row">
-
 			<div class="span12">
-
-					<div class="control-group">
+				<div class="control-group">
 					<label class="control-label" for="first_name">Name</label>
 					<div class="controls">
 						<input id="first_name" name="first_name" class="span2" type="text" placeholder="Joe" value="@loanApplication.first_name" required>
@@ -117,7 +104,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="control-group">
@@ -129,194 +115,182 @@
 
 
 		<div id="business-address">
+			<legend>Business Address</legend>
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_ADDRESS_LINE_1">Address Line 1</label>
+					<div class="controls">
+						<input id="BUSINESS_ADDRESS_LINE_1" name="BUSINESS_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_1" required>
+					</div>
+				</div>
 
-		<legend>Business Address</legend>
-		<div class="control-group">
-			<label class="control-label" for="BUSINESS_ADDRESS_LINE_1">Address Line 1</label>
-			<div class="controls">
-				<input id="BUSINESS_ADDRESS_LINE_1" name="BUSINESS_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_1" required>
-			</div>
-		</div>
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_ADDRESS_LINE_2">Address Line 2</label>
+					<div class="controls">
+						<input id="BUSINESS_ADDRESS_LINE_2" name="BUSINESS_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_2" required>
+					</div>
+				</div>
 
-		<div class="control-group">
-			<label class="control-label" for="BUSINESS_ADDRESS_LINE_2">Address Line 2</label>
-			<div class="controls">
-				<input id="BUSINESS_ADDRESS_LINE_2" name="BUSINESS_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_2" required>
-			</div>
-		</div>
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_ADDRESS_LINE_3">Address Line 3</label>
+					<div class="controls">
+						<input id="BUSINESS_ADDRESS_LINE_4" name="BUSINESS_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_3" required>
+					</div>
+				</div>
 
-		<div class="control-group">
-			<label class="control-label" for="BUSINESS_ADDRESS_LINE_3">Address Line 3</label>
-			<div class="controls">
-				<input id="BUSINESS_ADDRESS_LINE_4" name="BUSINESS_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_3" required>
-			</div>
-		</div>
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_ADDRESS_LINE_4">Address Line 4</label>
+					<div class="controls">
+						<input id="BUSINESS_ADDRESS_LINE_4" name="BUSINESS_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_5" required>
+					</div>
+				</div>
 
-		<div class="control-group">
-			<label class="control-label" for="BUSINESS_ADDRESS_LINE_4">Address Line 4</label>
-			<div class="controls">
-				<input id="BUSINESS_ADDRESS_LINE_4" name="BUSINESS_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_5" required>
-			</div>
-		</div>
+				<div class="control-group">
+					<label class="control-label" for="BUSINESS_ADDRESS_LINE_5">Address Line 5</label>
+					<div class="controls">
+						<input id="BUSINESS_ADDRESS_LINE_5" name="BUSINESS_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_5" required>
+					</div>
+				</div>
 
-		<div class="control-group">
-			<label class="control-label" for="BUSINESS_ADDRESS_LINE_5">Address Line 5</label>
-			<div class="controls">
-				<input id="BUSINESS_ADDRESS_LINE_5" name="BUSINESS_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.BUSINESS_ADDRESS_LINE_5" required>
-			</div>
-		</div>
+		</div><!-- end business address -->
 
-		</div> <!-- end business address -->
-
-		
-
-		<div id="first-applicant-address">
+	<!-- Start consumer address -->
+	<div id="first-applicant-address">
 
 		<legend><div class="first-applicant-address">Address</div></legend>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_YEARS_AT_ADDRESS">Years at Address</label>
-			<div class="controls">
-				<input id="FIRST_CLI_YEARS_AT_ADDRESS" name="FIRST_CLI_YEARS_AT_ADDRESS" class="span4" type="number" value="@loanApplication.FIRST_CLI_YEARS_AT_ADDRESS">
-			</div>
-		</div>		
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_YEARS_AT_ADDRESS">Years at Address</label>
+				<div class="controls">
+					<input id="FIRST_CLI_YEARS_AT_ADDRESS" name="FIRST_CLI_YEARS_AT_ADDRESS" class="span4" type="number" value="@loanApplication.FIRST_CLI_YEARS_AT_ADDRESS">
+				</div>
+			</div>		
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_1">Address Line 1</label>
-			<div class="controls">
-				<input id="FIRST_CLI_ADDRESS_LINE_1" name="FIRST_CLI_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_1" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_1">Address Line 1</label>
+				<div class="controls">
+					<input id="FIRST_CLI_ADDRESS_LINE_1" name="FIRST_CLI_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_1" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_2">Address Line 2</label>
-			<div class="controls">
-				<input id="FIRST_CLI_ADDRESS_LINE_2" name="FIRST_CLI_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_2" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_2">Address Line 2</label>
+				<div class="controls">
+					<input id="FIRST_CLI_ADDRESS_LINE_2" name="FIRST_CLI_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_2" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_3">Address Line 3</label>
-			<div class="controls">
-				<input id="FIRST_CLI_ADDRESS_LINE_3" name="FIRST_CLI_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_3" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_3">Address Line 3</label>
+				<div class="controls">
+					<input id="FIRST_CLI_ADDRESS_LINE_3" name="FIRST_CLI_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_3" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_4">Address Line 4</label>
-			<div class="controls">
-				<input id="FIRST_CLI_ADDRESS_LINE_4" name="FIRST_CLI_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_4" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_4">Address Line 4</label>
+				<div class="controls">
+					<input id="FIRST_CLI_ADDRESS_LINE_4" name="FIRST_CLI_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_4" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_5">Address Line 5</label>
-			<div class="controls">
-				<input id="FIRST_CLI_ADDRESS_LINE_5" name="FIRST_CLI_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_5" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_ADDRESS_LINE_5">Address Line 5</label>
+				<div class="controls">
+					<input id="FIRST_CLI_ADDRESS_LINE_5" name="FIRST_CLI_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_ADDRESS_LINE_5" required>
+				</div>
 			</div>
-		</div>
 
 		<!-- If years at address is less than required time -->
 		<div id="first_cli_less_than_required_time">
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_1">Previous Address Line 1</label>
-			<div class="controls">
-				<input id="FIRST_CLI_PREV_ADDR_LINE_1" name="FIRST_CLI_PREV_ADDR_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_1" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_1">Previous Address Line 1</label>
+				<div class="controls">
+					<input id="FIRST_CLI_PREV_ADDR_LINE_1" name="FIRST_CLI_PREV_ADDR_LINE_1" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_1" required>
+				</div>
 			</div>
-		</div>
-
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_2">Previous Address Line 2</label>
-			<div class="controls">
-				<input id="FIRST_CLI_PREV_ADDR_LINE_2" name="FIRST_CLI_PREV_ADDR_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_2" required>
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_3">Previous Address Line 3</label>
-			<div class="controls">
-				<input id="FIRST_CLI_PREV_ADDR_LINE_3" name="FIRST_CLI_PREV_ADDR_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_3" required>
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_4">Previous Address Line 4</label>
-			<div class="controls">
-				<input id="FIRST_CLI_PREV_ADDR_LINE_4" name="FIRST_CLI_PREV_ADDR_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_4" required>
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_5">Previous Address Line 5</label>
-			<div class="controls">
-				<input id="FIRST_CLI_PREV_ADDR_LINE_5" name="FIRST_CLI_PREV_ADDR_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_5" required>
-			</div>
-		</div>
-
-
-		</div>	<!-- end applicant -->
-	</div>
-
-		<legend><div class="first-applicant-contact">Contact Number</div></legend>
-
-		<label class="control-label" for="FIRST_CLI_HOME_PHONE_AREA">Home Phone</label>
-		<div class="controls controls-row">
-			<input class="span2" type="text" id="FIRST_CLI_HOME_PHONE_AREA" value="@loanApplication.FIRST_CLI_HOME_PHONE_AREA" placeholder="Area Code">
-			  <input class="span2" type="text" id="FIRST_CLI_HOME_PHONE_NO" value="@loanApplication.FIRST_CLI_HOME_PHONE_NO" placeholder="Phone Number">
-			  
-		</div>	  
-
-		<label class="control-label" for="FIRST_CLI_WORK_PHONE_AREA">Work Phone</label>
-		<div class="controls controls-row">
-			<input class="span2" type="text" id="FIRST_CLI_WORK_PHONE_AREA" value="@loanApplication.FIRST_CLI_WORK_PHONE_AREA" placeholder="Area Code">
-			  <input class="span2" type="text" id="FIRST_CLI_WORK_PHONE_NO" value="@loanApplication.FIRST_CLI_WORK_PHONE_NO" placeholder="Phone Number">
-			  
-		</div>
-
-		<label class="control-label" for="FIRST_CLI_MOBILE_PHONE_NO">Mobile Phone</label>
-		<div class="controls controls-row">
-			<input class="span4" type="text" id="FIRST_CLI_MOBILE_PHONE_NO" value="@loanApplication.FIRST_CLI_MOBILE_PHONE_NO" placeholder="Mobile Number">			  
-		</div>		
-
-
-		<label class="control-label" for="FIRST_CLI_PREFERRED_PHONE">Preferred contact method</label>
-
-		<div class="control-group">
-			<label class="checkbox inline">
-			  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_HOME" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" checked> Home Phone
-			</label>
-			<label class="checkbox inline">
-			  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_WORK" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" > Work Phone
-			</label>
-			<label class="checkbox inline">
-			  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_MOBILE" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" > Mobile Phone
-			</label>
-		</div>
-
-
-		<legend>Existing AIB Customer?</legend>
-		<div class="row">
-
-			<div class="span12">
 
 			<div class="control-group">
-				<label class="control-label" for="btn-first-yes">Do you already have an AIB Account?</label>
-					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-					  <button type="button" id="btn-first-yes" class="btn">Yes</button>
-					  <button type="button" id="btn-first-no" class="btn">No</button>
+				<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_2">Previous Address Line 2</label>
+				<div class="controls">
+					<input id="FIRST_CLI_PREV_ADDR_LINE_2" name="FIRST_CLI_PREV_ADDR_LINE_2" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_2" required>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_3">Previous Address Line 3</label>
+				<div class="controls">
+					<input id="FIRST_CLI_PREV_ADDR_LINE_3" name="FIRST_CLI_PREV_ADDR_LINE_3" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_3" required>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_4">Previous Address Line 4</label>
+				<div class="controls">
+					<input id="FIRST_CLI_PREV_ADDR_LINE_4" name="FIRST_CLI_PREV_ADDR_LINE_4" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_4" required>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_PREV_ADDR_LINE_5">Previous Address Line 5</label>
+				<div class="controls">
+					<input id="FIRST_CLI_PREV_ADDR_LINE_5" name="FIRST_CLI_PREV_ADDR_LINE_5" class="span4" type="text" value="@loanApplication.FIRST_CLI_PREV_ADDR_LINE_5" required>
+				</div>
+			</div>
+
+
+		</div><!-- end applicant -->
+	</div>
+
+			<legend><div class="first-applicant-contact">Contact Number</div></legend>
+
+				<label class="control-label" for="FIRST_CLI_HOME_PHONE_AREA">Home Phone</label>
+					<div class="controls controls-row">
+						<input class="span2" type="text" id="FIRST_CLI_HOME_PHONE_AREA" value="@loanApplication.FIRST_CLI_HOME_PHONE_AREA" placeholder="Area Code">
+						  <input class="span2" type="text" id="FIRST_CLI_HOME_PHONE_NO" value="@loanApplication.FIRST_CLI_HOME_PHONE_NO" placeholder="Phone Number">
+					  
+				</div>	  
+
+				<label class="control-label" for="FIRST_CLI_WORK_PHONE_AREA">Work Phone</label>
+					<div class="controls controls-row">
+						<input class="span2" type="text" id="FIRST_CLI_WORK_PHONE_AREA" value="@loanApplication.FIRST_CLI_WORK_PHONE_AREA" placeholder="Area Code">
+						  <input class="span2" type="text" id="FIRST_CLI_WORK_PHONE_NO" value="@loanApplication.FIRST_CLI_WORK_PHONE_NO" placeholder="Phone Number">		  
 					</div>
-			
 
-			</div>	
+				<label class="control-label" for="FIRST_CLI_MOBILE_PHONE_NO">Mobile Phone</label>
+					<div class="controls controls-row">
+						<input class="span4" type="text" id="FIRST_CLI_MOBILE_PHONE_NO" value="@loanApplication.FIRST_CLI_MOBILE_PHONE_NO" placeholder="Mobile Number">			  
+					</div>		
 
-		</div>
+				<label class="control-label" for="FIRST_CLI_PREFERRED_PHONE">Preferred contact method</label>
+					<div class="control-group">
+						<label class="checkbox inline">
+						  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_HOME" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" checked> Home Phone
+						</label>
+						<label class="checkbox inline">
+						  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_WORK" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" > Work Phone
+						</label>
+						<label class="checkbox inline">
+						  <input type="radio" name="FirstContactOptions" id="FIRST_CLI_PREFERRED_PHONE_MOBILE" value="@loanApplication.FIRST_CLI_PREFERRED_PHONE" > Mobile Phone
+						</label>
+					</div>
 
-		</div>
+		<legend>Existing AIB Customer?</legend>
+			<div class="row">
+				<div class="span12">
+					<div class="control-group">
+						<label class="control-label" for="btn-first-yes">Do you already have an AIB Account?</label>
+							<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+							  <button type="button" id="btn-first-yes" class="btn">Yes</button>
+							  <button type="button" id="btn-first-no" class="btn">No</button>
+							</div>
+					</div>
+				</div>
+			</div>
 	
 	<div id="first-account-details">
 
-	<legend><div class="first-applicant-account">Account Details</div></legend>
+		<legend><div class="first-applicant-account">Account Details</div></legend>
 
 		<div class="control-group">
 			<label class="control-label" for="sort_code">NSC</label>
@@ -340,88 +314,73 @@
 		</div>
 
 		<div class="row">
-
 			<div class="span12">
-
-			<div class="control-group">
-				<label class="control-label" for="btn-first-repayments-yes">Repayments to be taken from this account?</label>
-					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-					  <button type="button" id="btn-first-repayments-yes" class="btn">Yes</button>
-					  <button type="button" id="btn-first-repayments-no" class="btn">No</button>
-					</div>
-			
-
-			</div>	
-
-		</div>
-
+				<div class="control-group">
+					<label class="control-label" for="btn-first-repayments-yes">Repayments to be taken from this account?</label>
+						<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+						<button type="button" id="btn-first-repayments-yes" class="btn">Yes</button>
+						<button type="button" id="btn-first-repayments-no" class="btn">No</button>
+						</div>
+				</div>	
+			</div>
 		</div>
 
 
-	</div> <!--  end first account details -->
+	</div><!--  end first account details -->
 
-		<div id="first-repayments-no">
+	<div id="first-repayments-no">
 
 		<legend>Repayment Account Details</legend>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_BANK_NSC">NSC</label>
-			<div class="controls">
-				<input id="FIRST_CLI_BANK_NSC" name="FIRST_CLI_BANK_NSC" class="span2" value="@loanApplication.FIRST_CLI_BANK_NSC" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_BANK_NSC">NSC</label>
+				<div class="controls">
+					<input id="FIRST_CLI_BANK_NSC" name="FIRST_CLI_BANK_NSC" class="span2" value="@loanApplication.FIRST_CLI_BANK_NSC" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_BANK_ACCOUNT_NUMBER">Account #</label>
-			<div class="controls">
-				<input id="FIRST_CLI_BANK_ACCOUNT_NUMBER" name="FIRST_CLI_BANK_ACCOUNT_NUMBER" class="span4" type="text" placeholder="8123457" value="@loanApplication.FIRST_CLI_BANK_ACCOUNT_NUMBER" required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_BANK_ACCOUNT_NUMBER">Account #</label>
+				<div class="controls">
+					<input id="FIRST_CLI_BANK_ACCOUNT_NUMBER" name="FIRST_CLI_BANK_ACCOUNT_NUMBER" class="span4" type="text" placeholder="8123457" value="@loanApplication.FIRST_CLI_BANK_ACCOUNT_NUMBER" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="FIRST_CLI_FINANCIAL_INSTITUTE">Branch</label>
-			<div class="controls">
-				<input id="FIRST_CLI_FINANCIAL_INSTITUTE" name="FIRST_CLI_FINANCIAL_INSTITUTE" class="span4" type="text" placeholder="BOI" data-provide="typeahead" value="@loanApplication.FIRST_CLI_FINANCIAL_INSTITUTE" autocomplete=off required>
+			<div class="control-group">
+				<label class="control-label" for="FIRST_CLI_FINANCIAL_INSTITUTE">Branch</label>
+				<div class="controls">
+					<input id="FIRST_CLI_FINANCIAL_INSTITUTE" name="FIRST_CLI_FINANCIAL_INSTITUTE" class="span4" type="text" placeholder="BOI" data-provide="typeahead" value="@loanApplication.FIRST_CLI_FINANCIAL_INSTITUTE" autocomplete=off required>
+				</div>
 			</div>
-		</div>
 
 		</div><!--  end first repayment details -->
 
 	
-
-
-
-
-
-
-
-		<div id="secondapplicant">
+	<!-- Second applicant details -->
+	<div id="secondapplicant">
 		<legend>Second Applicant Details</legend>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_TITLE_DESC">Title</label>
-				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-				  <button type="button" class="btn btn-primary">Mr</button>
-				  <button type="button" class="btn btn-primary">Ms</button>
-				  <button type="button" class="btn btn-primary">Mrs</button>
-				</div>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_TITLE_DESC">Title</label>
+					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					  <button type="button" class="btn btn-primary">Mr</button>
+					  <button type="button" class="btn btn-primary">Ms</button>
+					  <button type="button" class="btn btn-primary">Mrs</button>
+					</div>
+			</div>
 
-		</div>
 
-
-		<div class="row">
-
-			<div class="span12">
-				<div class="control-group">
-					<label class="control-label" for="SECOND_CLI_FIRST_NAME">Name</label>
-					<div class="controls">
-						<input id="SECOND_CLI_FIRST_NAME" name="SECOND_CLI_FIRST_NAME" class="span2" type="text" placeholder="Joe" value="@loanApplication.SECOND_CLI_FIRST_NAME" required>
-						<input id="SECOND_CLI_SURNAME" name="SECOND_CLI_SURNAME" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.SECOND_CLI_SURNAME" required>
+			<div class="row">
+				<div class="span12">
+					<div class="control-group">
+						<label class="control-label" for="SECOND_CLI_FIRST_NAME">Name</label>
+						<div class="controls">
+							<input id="SECOND_CLI_FIRST_NAME" name="SECOND_CLI_FIRST_NAME" class="span2" type="text" placeholder="Joe" value="@loanApplication.SECOND_CLI_FIRST_NAME" required>
+							<input id="SECOND_CLI_SURNAME" name="SECOND_CLI_SURNAME" class="span2" type="text" placeholder="Bloggs" value="@loanApplication.SECOND_CLI_SURNAME" required>
+						</div>
 					</div>
 				</div>
 			</div>
-
-		</div>
 
 		<div class="control-group">
 			<label class="control-label" for="second_cli_email">Email</label>
@@ -431,156 +390,141 @@
 		</div>
 
 
-		<legend><div class="second-applicant-address">Address</div><button id="secondary-address-same" class="btn btn-small btn-primary" type="button">Same as above</button></legend>
+	<legend>
+		<div class="second-applicant-address">Address</div><button id="secondary-address-same" class="btn btn-small btn-primary" type="button">Same as above</button>
+	</legend>
 
 
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_YEARS_AT_ADDRESS">Years at Address</label>
+				<div class="controls">
+					<input id="SECOND_CLI_YEARS_AT_ADDRESS" name="SECOND_CLI_YEARS_AT_ADDRESS" class="span4" type="number" value="@loanApplication.SECOND_CLI_YEARS_AT_ADDRESS">
+				</div>
+			</div>		
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_YEARS_AT_ADDRESS">Years at Address</label>
-			<div class="controls">
-				<input id="SECOND_CLI_YEARS_AT_ADDRESS" name="SECOND_CLI_YEARS_AT_ADDRESS" class="span4" type="number" value="@loanApplication.SECOND_CLI_YEARS_AT_ADDRESS">
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_1">Address Line 1</label>
+				<div class="controls">
+					<input id="SECOND_CLI_ADDRESS_LINE_1" name="SECOND_CLI_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_1" required>
+				</div>
 			</div>
-		</div>		
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_1">Address Line 1</label>
-			<div class="controls">
-				<input id="SECOND_CLI_ADDRESS_LINE_1" name="SECOND_CLI_ADDRESS_LINE_1" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_1" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_2">Address Line 2</label>
+				<div class="controls">
+					<input id="SECOND_CLI_ADDRESS_LINE_2" name="SECOND_CLI_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_2" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_2">Address Line 2</label>
-			<div class="controls">
-				<input id="SECOND_CLI_ADDRESS_LINE_2" name="SECOND_CLI_ADDRESS_LINE_2" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_2" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_3">Address Line 3</label>
+				<div class="controls">
+					<input id="SECOND_CLI_ADDRESS_LINE_3" name="SECOND_CLI_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_3" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_3">Address Line 3</label>
-			<div class="controls">
-				<input id="SECOND_CLI_ADDRESS_LINE_3" name="SECOND_CLI_ADDRESS_LINE_3" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_3" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_4">Address Line 4</label>
+				<div class="controls">
+					<input id="SECOND_CLI_ADDRESS_LINE_4" name="SECOND_CLI_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_4" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_4">Address Line 4</label>
-			<div class="controls">
-				<input id="SECOND_CLI_ADDRESS_LINE_4" name="SECOND_CLI_ADDRESS_LINE_4" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_4" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_5">Address Line 5</label>
+				<div class="controls">
+					<input id="SECOND_CLI_ADDRESS_LINE_5" name="SECOND_CLI_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_5" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_ADDRESS_LINE_5">Address Line 5</label>
-			<div class="controls">
-				<input id="SECOND_CLI_ADDRESS_LINE_5" name="SECOND_CLI_ADDRESS_LINE_5" class="span4" type="text" value="@loanApplication.SECOND_CLI_ADDRESS_LINE_5" required>
-			</div>
-		</div>
-
-		<!-- If years at the address is less than required time -->
+	<!-- If years at the address is less than required time -->
 		<div id="second_cli_less_than_required_time">
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_1">Previous Address Line 1</label>
-			<div class="controls">
-				<input id="SECOND_CLI_PREV_ADDR_LINE_1" name="SECOND_CLI_PREV_ADDR_LINE_1" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_1" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_1">Previous Address Line 1</label>
+				<div class="controls">
+					<input id="SECOND_CLI_PREV_ADDR_LINE_1" name="SECOND_CLI_PREV_ADDR_LINE_1" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_1" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_2">Previous Address Line 2</label>
-			<div class="controls">
-				<input id="SECOND_CLI_PREV_ADDR_LINE_2" name="SECOND_CLI_PREV_ADDR_LINE_2" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_2" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_2">Previous Address Line 2</label>
+				<div class="controls">
+					<input id="SECOND_CLI_PREV_ADDR_LINE_2" name="SECOND_CLI_PREV_ADDR_LINE_2" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_2" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_3">Previous Address Line 3</label>
-			<div class="controls">
-				<input id="SECOND_CLI_PREV_ADDR_LINE_3" name="SECOND_CLI_PREV_ADDR_LINE_3" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_3" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_3">Previous Address Line 3</label>
+				<div class="controls">
+					<input id="SECOND_CLI_PREV_ADDR_LINE_3" name="SECOND_CLI_PREV_ADDR_LINE_3" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_3" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_4">Previous Address Line 4</label>
-			<div class="controls">
-				<input id="SECOND_CLI_PREV_ADDR_LINE_4" name="SECOND_CLI_PREV_ADDR_LINE_4" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_4" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_4">Previous Address Line 4</label>
+				<div class="controls">
+					<input id="SECOND_CLI_PREV_ADDR_LINE_4" name="SECOND_CLI_PREV_ADDR_LINE_4" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_4" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_5">Previous Address Line 5</label>
-			<div class="controls">
-				<input id="SECOND_CLI_PREV_ADDR_LINE_5" name="SECOND_CLI_PREV_ADDR_LINE_5" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_5" required>
+			<div class="control-group">
+				<label class="control-label" for="SECOND_CLI_PREV_ADDR_LINE_5">Previous Address Line 5</label>
+				<div class="controls">
+					<input id="SECOND_CLI_PREV_ADDR_LINE_5" name="SECOND_CLI_PREV_ADDR_LINE_5" class="span4" type="text" value="@loanApplication.SECOND_CLI_PREV_ADDR_LINE_5" required>
+				</div>
 			</div>
-		</div>
-
-
 
 		</div>	
 
 		<legend><div class="second-applicant-contact">Contact Number</div></legend>
 
-		<label class="control-label" for="SECOND_CLI_HOME_PHONE_AREA">Home Phone</label>
-		<div class="controls controls-row">
-			<input class="span2" type="text" id="SECOND_CLI_HOME_PHONE_AREA" value="@loanApplication.SECOND_CLI_HOME_PHONE_AREA" placeholder="Area Code">
-			  <input class="span2" type="text" id="SECOND_CLI_HOME_PHONE_NO" value="@loanApplication.SECOND_CLI_HOME_PHONE_NO" placeholder="Phone Number">
-			  
-		</div>	  
+			<label class="control-label" for="SECOND_CLI_HOME_PHONE_AREA">Home Phone</label>
+				<div class="controls controls-row">
+					<input class="span2" type="text" id="SECOND_CLI_HOME_PHONE_AREA" value="@loanApplication.SECOND_CLI_HOME_PHONE_AREA" placeholder="Area Code">
+					  <input class="span2" type="text" id="SECOND_CLI_HOME_PHONE_NO" value="@loanApplication.SECOND_CLI_HOME_PHONE_NO" placeholder="Phone Number">  
+				</div>	  
 
-		<label class="control-label" for="SECOND_CLI_WORK_PHONE_AREA">Work Phone</label>
-		<div class="controls controls-row">
-			<input class="span2" type="text" id="SECOND_CLI_WORK_PHONE_AREA" value="@loanApplication.SECOND_CLI_WORK_PHONE_AREA" placeholder="Area Code">
-			  <input class="span2" type="text" id="SECOND_CLI_WORK_PHONE_NO" value="@loanApplication.SECOND_CLI_WORK_PHONE_NO" placeholder="Phone Number">
-			  
-		</div>
+			<label class="control-label" for="SECOND_CLI_WORK_PHONE_AREA">Work Phone</label>
+				<div class="controls controls-row">
+					<input class="span2" type="text" id="SECOND_CLI_WORK_PHONE_AREA" value="@loanApplication.SECOND_CLI_WORK_PHONE_AREA" placeholder="Area Code">
+					  <input class="span2" type="text" id="SECOND_CLI_WORK_PHONE_NO" value="@loanApplication.SECOND_CLI_WORK_PHONE_NO" placeholder="Phone Number">  
+				</div>
 
-		<label class="control-label" for="SECOND_CLI_MOBILE_PHONE_NO">Mobile Phone</label>
-		<div class="controls controls-row">
-			<input class="span4" type="text" id="SECOND_CLI_MOBILE_PHONE_NO" value="@loanApplication.SECOND_CLI_MOBILE_PHONE_NO" placeholder="Mobile Number">			  
-		</div>		
+			<label class="control-label" for="SECOND_CLI_MOBILE_PHONE_NO">Mobile Phone</label>
+				<div class="controls controls-row">
+					<input class="span4" type="text" id="SECOND_CLI_MOBILE_PHONE_NO" value="@loanApplication.SECOND_CLI_MOBILE_PHONE_NO" placeholder="Mobile Number">			  
+				</div>		
 
 
-		<label class="control-label" for="SECOND_CLI_PREFERRED_PHONE">Preferred contact method</label>
+			<label class="control-label" for="SECOND_CLI_PREFERRED_PHONE">Preferred contact method</label>
+				<div class="control-group">
+					<label class="checkbox inline">
+					  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_HOME" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" checked> Home Phone
+					</label>
+					<label class="checkbox inline">
+					  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_WORK" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" > Work Phone
+					</label>
+					<label class="checkbox inline">
+					  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_MOBILE" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" > Mobile Phone
+					</label>
+				</div>
 
-		<div class="control-group">
-			<label class="checkbox inline">
-			  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_HOME" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" checked> Home Phone
-			</label>
-			<label class="checkbox inline">
-			  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_WORK" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" > Work Phone
-			</label>
-			<label class="checkbox inline">
-			  <input type="radio" name="SecondContactOptions" id="SECOND_CLI_PREFERRED_PHONE_MOBILE" value="@loanApplication.SECOND_CLI_PREFERRED_PHONE" > Mobile Phone
-			</label>
-		</div>
-	
-
-
-
-		<legend>Existing AIB Customer?</legend>
+	<legend>Existing AIB Customer?</legend>
 		<div class="row">
-
 			<div class="span12">
-
-			<div class="control-group">
-				<label class="control-label" for="btn-second-yes">Do you already have an AIB Account?</label>
-					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-					  <button type="button" id="btn-second-yes" class="btn">Yes</button>
-					  <button type="button" id="btn-second-no" class="btn">No</button>
-					</div>
-			
-
-			</div>	
-
+				<div class="control-group">
+					<label class="control-label" for="btn-second-yes">Do you already have an AIB Account?</label>
+						<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+						  <button type="button" id="btn-second-yes" class="btn">Yes</button>
+						  <button type="button" id="btn-second-no" class="btn">No</button>
+						</div>
+				</div>
+			</div>
 		</div>
-
-		</div>
-
-
 
 	<div id="second-account-details">
-		<legend><div class="second-applicant-account">Account Details</div></legend>
+	<legend><div class="second-applicant-account">Account Details</div></legend>
 
 		<div class="control-group">
 			<label class="control-label" for="SECOND_CLI_BANK_NSC">NSC</label>
@@ -589,15 +533,12 @@
 			</div>
 		</div>
 
-
 		<div class="control-group">
 			<label class="control-label" for="SECOND_CLI_FINANCIAL_INSTITUTE">Bank</label>
 			<div class="controls">
 				<input id="SECOND_CLI_FINANCIAL_INSTITUTE" name="SECOND_CLI_FINANCIAL_INSTITUTE" class="span4" type="text" min="1950" placeholder="AIB" data-provide="typeahead" value="@loanApplication.SECOND_CLI_FINANCIAL_INSTITUTE" autocomplete=off required>
 			</div>
 		</div>
-
-
 
 		<div class="control-group">
 			<label class="control-label" for="SECOND_CLI_BANK_ACCOUNT_NUMBER">Account #</label>
@@ -608,30 +549,23 @@
 
 
 		<div class="row">
-
 			<div class="span12">
-
-			<div class="control-group">
-				<label class="control-label" for="btn-second-repayments-yes">Repayments to be taken from this account?</label>
-					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-					  <button type="button" id="btn-second-repayments-yes" class="btn">Yes</button>
-					  <button type="button" id="btn-second-repayments-no" class="btn">No</button>
-					</div>
-			
-
-			</div>	
-
-		</div>
-
+				<div class="control-group">
+					<label class="control-label" for="btn-second-repayments-yes">Repayments to be taken from this account?</label>
+						<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+						  <button type="button" id="btn-second-repayments-yes" class="btn">Yes</button>
+						  <button type="button" id="btn-second-repayments-no" class="btn">No</button>
+						</div>
+				</div>	
+			</div>
 		</div>
 
 
 	</div> <!--  end second account details -->
 
 
-		<div id="second-repayments-no">
-
-		<legend>Repayment Account Details</legend>
+	<div id="second-repayments-no">
+	<legend>Repayment Account Details</legend>
 
 		<div class="control-group">
 			<label class="control-label" for="SECOND_CLI_REPAYMENT_BANK_NSC">NSC</label>
@@ -654,183 +588,168 @@
 			</div>
 		</div>
 
-		</div><!--  end second repayment details -->
+	</div><!--  end second repayment details -->
+
+	</div>	<!-- end second applicant -->	
 
 
+	<legend>Select Finance Type</legend>
 
-
-
-		</div>	<!-- end second applicant -->	
-
-
-		<legend>Select Finance Type</legend>
-
-
-
-		<div class="control-group">
-			<label class="control-label" for="btn-hp">Select the required type</label>
-				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-				  <button type="button" id="btn-hp" class="btn btn-hp">Hire-Purchase</button>
-				  <button type="button" id="btn-lease" class="btn btn-lease">Lease</button>
-		</div>
+			<div class="control-group">
+				<label class="control-label" for="btn-hp">Select the required type</label>
+					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					  <button type="button" id="btn-hp" class="btn btn-hp">Hire-Purchase</button>
+					  <button type="button" id="btn-lease" class="btn btn-lease">Lease</button>
+			</div>
 
 
 		<div id="lease_info">
 
 		<legend>Lease Info</legend>
 
-		<div class="control-group">
-			<label class="control-label" for="payment_amount">Number of Advance Rentals</label>
-			<div class="controls">
-				<input id="number_of_advance_rentals" name="number_of_advance_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_advance_rentals">
+			<div class="control-group">
+				<label class="control-label" for="payment_amount">Number of Advance Rentals</label>
+				<div class="controls">
+					<input id="number_of_advance_rentals" name="number_of_advance_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_advance_rentals">
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="payment_amount">Number of Rentals</label>
-			<div class="controls">
-				<input id="number_of_rentals" name="number_of_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
+			<div class="control-group">
+				<label class="control-label" for="payment_amount">Number of Rentals</label>
+				<div class="controls">
+					<input id="number_of_rentals" name="number_of_rentals" class="span4" type="number" placeholder="2" value="@loanApplication.number_of_rentals">
+				</div>
 			</div>
-		</div>
 
 		</div> <!-- End lease info -->
 
-
 		<legend>Car Details</legend>
-		<div class="row">
+			<div class="row">
 
-			<div class="span12">
-				<div class="control-group">
-					<label class="control-label" for="car_year">Year</label>
-					<div class="controls">
-						<input id="car_year" name="year" class="span4" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+				<div class="span12">
+					<div class="control-group">
+						<label class="control-label" for="car_year">Year</label>
+						<div class="controls">
+							<input id="car_year" name="year" class="span4" type="number" min="1950" max="2020" placeholder="2010" data-provide="typeahead" value="@loanApplication.year" required>
+						</div>
 					</div>
-				</div>
 
 
-				<div class="control-group">
-					<label class="control-label" for="car_make">Make</label>
-					<div class="controls">
-						<input id="car_make" name="make" class="span4" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+					<div class="control-group">
+						<label class="control-label" for="car_make">Make</label>
+						<div class="controls">
+							<input id="car_make" name="make" class="span4" type="text" placeholder="Ford" data-provide="typeahead" value="@loanApplication.make" autocomplete=off required>
+						</div>
 					</div>
-				</div>
 
 
-				<div class="control-group">
-					<label class="control-label" for="car_model">Model</label>
-					<div class="controls">
-						<input id="car_model" name="model" class="span4" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
+					<div class="control-group">
+						<label class="control-label" for="car_model">Model</label>
+						<div class="controls">
+							<input id="car_model" name="model" class="span4" type="text" placeholder="Focus" data-provide="typeahead" value="@loanApplication.model" autocomplete=off required>
+						</div>
 					</div>
-				</div>
 
 
-				<div class="control-group">
-					<label class="control-label" for="car_type">Type</label>
-					<div class="controls">
-						<select id="car_type" name="type" class="span4">
-							@vehicleTypes
-						</select>
+					<div class="control-group">
+						<label class="control-label" for="car_type">Type</label>
+						<div class="controls">
+							<select id="car_type" name="type" class="span4">
+								@vehicleTypes
+							</select>
+						</div>
 					</div>
+
 				</div>
 
 			</div>
-
-		</div>
 
 
 
 		<legend>Finance Required</legend>
 
-		<div class="control-group">
-			<label class="control-label" for="cash_price">Cash Price</label>
-			<div class="controls">
-				<input id="cash_price" name="cash_price" class="span4" type="text" placeholder="8000" value="@loanApplication.cash_price" required>
+			<div class="control-group">
+				<label class="control-label" for="cash_price">Cash Price</label>
+				<div class="controls">
+					<input id="cash_price" name="cash_price" class="span4" type="text" placeholder="8000" value="@loanApplication.cash_price" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="trade_in">Trade In</label>
-			<div class="controls">
-				<input id="trade_in" name="trade_in" class="span4" type="text" placeholder="2000" value="@loanApplication.trade_in" required>
+			<div class="control-group">
+				<label class="control-label" for="trade_in">Trade In</label>
+				<div class="controls">
+					<input id="trade_in" name="trade_in" class="span4" type="text" placeholder="2000" value="@loanApplication.trade_in" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="deposit">Deposit</label>
-			<div class="controls">
-				<input id="deposit" name="deposit" class="span4" type="text" placeholder="1500" value="@loanApplication.deposit" required>
+			<div class="control-group">
+				<label class="control-label" for="deposit">Deposit</label>
+				<div class="controls">
+					<input id="deposit" name="deposit" class="span4" type="text" placeholder="1500" value="@loanApplication.deposit" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="outstanding_finance_on_trade_in">Outstanding Finance on Trade In</label>
-			<div class="controls">
-				<input id="outstanding_finance_on_trade_in" name="outstanding_finance_on_trade_in" class="span4" type="text" placeholder="500" value="@loanApplication.outstanding_finance_on_trade_in" required>
+			<div class="control-group">
+				<label class="control-label" for="outstanding_finance_on_trade_in">Outstanding Finance on Trade In</label>
+				<div class="controls">
+					<input id="outstanding_finance_on_trade_in" name="outstanding_finance_on_trade_in" class="span4" type="text" placeholder="500" value="@loanApplication.outstanding_finance_on_trade_in" required>
+				</div>
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="finance_required">Finance Required</label>
-			<div class="controls">
-				<input id="finance_required" name="finance_required" class="span4" type="text" placeholder="5000" value="@loanApplication.finance_required" required>
+			<div class="control-group">
+				<label class="control-label" for="finance_required">Finance Required</label>
+				<div class="controls">
+					<input id="finance_required" name="finance_required" class="span4" type="text" placeholder="5000" value="@loanApplication.finance_required" required>
+				</div>
 			</div>
-		</div>
 		
 
 		<legend>Repayment Info</legend>
 
+			<div class="control-group">
+				<label class="control-label" for="payment_frequency">Payment Frequency</label>
+					<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
+					  <button type="button" class="btn btn-primary">Monthly</button>
+					  <button type="button" class="btn btn-primary">Quarterly</button>
+					  <button type="button" class="btn btn-primary">Yearly</button>
+					</div>
+	<!-- 
+				<div class="controls">
+					<input id="payment_frequency" name="payment_frequency" class="span4" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
+				</div> -->
+			</div>
 
-
-		<div class="control-group">
-			<label class="control-label" for="payment_frequency">Payment Frequency</label>
-				<div style="padding-left: 20px;" class="btn-group" data-toggle="buttons-radio">
-				  <button type="button" class="btn btn-primary">Monthly</button>
-				  <button type="button" class="btn btn-primary">Quarterly</button>
-				  <button type="button" class="btn btn-primary">Yearly</button>
+			<div class="control-group">
+				<label class="control-label" for="payment_term">Payment Term</label>
+				<div class="controls">
+					<input id="payment_term" name="payment_term" class="span4" type="text" placeholder="3 years" value="@loanApplication.payment_term">
 				</div>
-<!-- 
-			<div class="controls">
-				<input id="payment_frequency" name="payment_frequency" class="span4" type="text" placeholder="monthly" value="@loanApplication.payment_frequency">
-			</div> -->
-		</div>
-
-		<div class="control-group">
-			<label class="control-label" for="payment_term">Payment Term</label>
-			<div class="controls">
-				<input id="payment_term" name="payment_term" class="span4" type="text" placeholder="3 years" value="@loanApplication.payment_term">
 			</div>
-		</div>
 
-		<div class="control-group">
-			<label class="control-label" for="payment_amount">Payment Amount</label>
-			<div class="controls">
-				<input id="payment_amount" name="payment_amount" class="span4" type="text" placeholder="300" value="@loanApplication.payment_amount">
+			<div class="control-group">
+				<label class="control-label" for="payment_amount">Payment Amount</label>
+				<div class="controls">
+					<input id="payment_amount" name="payment_amount" class="span4" type="text" placeholder="300" value="@loanApplication.payment_amount">
+				</div>
 			</div>
-		</div>
-		
-
-
-
-						
+					
 
 		<legend>Comment</legend>
-		<textarea id="comment" name="comment" placeholder="Add Comment..." class="input-block-level" value="@loanApplication.comment" rows="3"></textarea>
+		
+			<textarea id="comment" name="comment" placeholder="Add Comment..." class="input-block-level" value="@loanApplication.comment" rows="3"></textarea>
 
 		
 
 		<legend></legend>
 
-		<div class="row">
-
-			<div class="span4 offset4">
-				<button type="submit" class="btn btn-primary">Save</button>
-				<a href="@routes.LoanApplicationController.list()">
-					<button type="button" class="btn">Cancel</button>
-				</a>
+			<div class="row">
+				<div class="span4 offset4">
+					<button type="submit" class="btn btn-primary">Save</button>
+					<a href="@routes.LoanApplicationController.list()">
+						<button type="button" class="btn">Cancel</button>
+					</a>
+				</div>
 			</div>
-			
-
-		</div>
 
 </div>
 
